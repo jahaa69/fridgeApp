@@ -1,0 +1,22 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80" # Expose port 8080 on WSL to port 80 in the container
+    volumes:
+      - ./src:/var/www/html
+  mysql:
+    image: mysql:5.7
+    platform: linux/x86_64
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+      MYSQL_DATABASE: fridgeDB
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306" # Expose port 3306 on the host to port 3306 in the container
+volumes:
+    db_data:
