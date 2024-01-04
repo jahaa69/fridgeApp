@@ -30,6 +30,10 @@ switch ($route) {
             $controller = new HomeController();
             $controller->addOneAlliment($id);
         break;
+    case '/impr':
+            $controller = new HomeController();
+            $controller->impr();
+        break;
 
         // Ajouter d'autres routes au besoin
     default:

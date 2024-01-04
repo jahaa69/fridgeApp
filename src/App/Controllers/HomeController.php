@@ -36,5 +36,28 @@ class HomeController
         $addOneAllimentModel->addOneAlliment($id);
         header('Location: /');
     }
+    public function impr()
+    {
+        $alliments = $this->allimentlist();
+
+        echo '<table class="table">
+        <thead>
+            <tr>
+                <th scope="col">nom</th>
+                <th scope="col">quantité</th>
+            </tr>
+        </thead>
+        <tbody>';
+        foreach ($alliments as $alliment) {
+            echo '<tr>
+                    <td>' . $alliment['name'] . '</td>
+                    <td>' . $alliment['quantity'] . '</td>
+                </tr>';
+        }
+        echo '</tbody>
+        </table>';
+
+        echo '<script type="text/javascript">window.print();</script>';
+    }
 
 }

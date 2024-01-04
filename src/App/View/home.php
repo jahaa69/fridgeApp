@@ -12,13 +12,15 @@
 <body>
     <form action="addAlliment" method="POST">
         <div class="input-group">
-            <span class="input-group-text">nom de l'alliment</span>
             <input type="text" aria-label="First name" class="form-control" name="name" placeholder="nom de l'alliment" autocomplete="off">
             <input type="text"aria-label="First name" class="form-control" name="quantity" placeholder="quantitée" autocomplete="off">
             <button type="submit" class="btn btn-outline-secondary">ajouter</button>
         </div>
     </form>
     <h2>Liste des aliments :</h2>
+                <form action="impr" method="post">
+                    <button type="submit" class="btn btn-outline-secondary">imprimer</button>
+                </form>
     <table class="table">
         <thead>
             <tr>
