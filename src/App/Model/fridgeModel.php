@@ -11,7 +11,7 @@ class fridgeModel
 
     public function connectBdd(): \PDO
     {
-        $dsn = 'mysql:host=172.18.0.2;dbname=fridgeDB';
+        $dsn = 'mysql:host=mysql;dbname=fridgeDB';
         $username = 'admin';
         $password = 'admin';
         try {
@@ -53,7 +53,13 @@ class fridgeModel
             $stmtDecrement->execute();
         }
     }
-    
+     function updateDate($id){
+        //cette function permet de mettre à jour la date de fin quand on atteint la quantité 0
+        $sql = "UPDATE alliment SET delete_at = NOW() WHERE id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $id, PDO::PARAM_INT);
+        $stmt->execute();
+     }
     private function getAlimentQuantity($id)
     {
         $sql = "SELECT quantity FROM alliment WHERE id = ?";

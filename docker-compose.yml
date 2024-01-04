@@ -14,6 +14,9 @@ services:
       MYSQL_DATABASE: fridgeDB
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin
+    networks:
+      - mynetwork
+
     volumes:
       - db_data:/var/lib/mysql
     ports:

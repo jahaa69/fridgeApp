@@ -2,7 +2,7 @@
 
 namespace DataBase;
 
-$dsn = 'mysql:host=172.18.0.2;dbname=fridgeDB';
+$dsn = 'mysql:host=172.19.0.2;dbname=fridgeDB';
 $username = 'admin';
 $password = 'admin';
 try {
